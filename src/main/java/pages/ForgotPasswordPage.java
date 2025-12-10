@@ -25,6 +25,12 @@ public class ForgotPasswordPage extends BaseLibrary {
     private WebElement confirmPasswordField;
     @FindBy(xpath = "//button[text()='Submit']")
     private WebElement submitButton;
+    @FindBy(xpath = "//input[@formcontrolname='username']")
+    private WebElement usernameField;
+    @FindBy(xpath = "//input[@formcontrolname='password']")
+    private WebElement passwordField;
+    @FindBy(xpath = "//button[@type='submit']")
+    private WebElement loginBtn;
 
     public ForgotPasswordPage() {
         PageFactory.initElements(driver, this);
@@ -40,7 +46,7 @@ public class ForgotPasswordPage extends BaseLibrary {
     }
 
     public void sendOTP(){
-        waitForType(emailField, "aakash.kumar@garudauav.com");
+        waitForType(emailField, getProperty("fEmail"));
         waitForClick(sendOtpBtn);
     }
 
@@ -51,8 +57,15 @@ public class ForgotPasswordPage extends BaseLibrary {
     }
 
     public void setPassword(){
-        waitForType(newPasswordField, "Garuda@1234");
-        waitForType(confirmPasswordField, "Garuda@1234");
+        waitForType(newPasswordField, getProperty("fPassword"));
+        waitForType(confirmPasswordField, getProperty("fPassword"));
         waitForClick(submitButton);
+    }
+
+    public void validatePassword(){
+        waitForType(usernameField, getProperty("fEmail"));
+        waitForType(passwordField, getProperty("fPassword"));
+        waitForClick(loginBtn);
+        Assert.assertTrue(waitForUrlContains("dashboard"), "Login failed — Password did not Reset!");
     }
 }

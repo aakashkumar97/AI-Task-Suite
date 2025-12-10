@@ -19,13 +19,34 @@ public class ForgotPasswordTest extends BaseLibrary {
     }
 
     @Test(priority = 1)
-    public void VerifyForgotPassword() {
+    public void verifyForgotPasswordRedirection() {
         ob.verifyForgotPasswordRedirection();
+    }
+
+    @Test(priority = 2)
+    public void verifyBackToLogin() {
         ob.verifyBackToLogin();
+    }
+
+    @Test(priority = 3)
+    public void verifyForgotPassword() {
         ob.verifyForgotPasswordRedirection();
         ob.sendOTP();
+    }
+
+    @Test(priority = 4)
+    public void validateOTP() {
         ob.validateOTP();
+    }
+
+    @Test(priority = 5)
+    public void setPassword() {
         ob.setPassword();
+    }
+
+    @Test(priority = 6)
+    public void validatePassword() {
+        ob.validatePassword();
     }
 
 }
