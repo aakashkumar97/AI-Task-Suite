@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+
+    <parameter name="browser" value="edge"><!-- chrome / edge / firefox --></parameter>
+    <parameter name="environment" value="stage"><!-- stage / dev / uat / prod --></parameter>
+
+    <test name="Login Tests"  enabled="false">
+        <parameter name="userType" value="admin"><!-- admin / developer / annotator --></parameter>
+        <classes>
+            <class name="tests.LoginTest"/>
+        </classes>
+    </test>
+
+    <test name="Forgot Password Tests"  enabled="true">
+        <parameter name="userType" value="admin"><!-- admin / developer / annotator --></parameter>
+        <classes>
+            <class name="tests.ForgotPasswordTest"/>
+        </classes>
+    </test>
+
+    <test name="Admin Dashboard Tests"  enabled="false">
+        <parameter name="userType" value="admin"> </parameter>
+        <classes>
+            <class name="tests.LoginTest"/>
+            <class name="tests.AdminDashboardTest"/>
+        </classes>
+    </test>
+
+    <test name="Datasets Tests"  enabled="false">
+        <parameter name="userType" value="admin"> </parameter>
+        <classes>
+            <class name="tests.LoginTest"/>
+            <class name="tests.DatasetsTest"/>
+        </classes>
+    </test>
+
+    <test name="Projects Tests"  enabled="false">
+        <parameter name="userType" value="admin"> </parameter>
+        <classes>
+            <class name="tests.LoginTest"/>
+            <class name="tests.ProjectsTest"/>
+        </classes>
+    </test>
+
+    <test name="Class Tags Tests"  enabled="false">
+        <parameter name="userType" value="admin"> </parameter>
+        <classes>
+            <class name="tests.LoginTest"/>
+            <class name="tests.ClassTagsTest"/>
+        </classes>
+    </test>
+
+    <test name="Users Tests"  enabled="false">
+        <parameter name="userType" value="admin"> </parameter>
+        <classes>
+            <class name="tests.LoginTest"/>
+            <class name="tests.UsersTest"/>
+        </classes>
+    </test>
+
+    <test name="Annotator Dashboard Tests"  enabled="false">
+        <parameter name="userType" value="annotator"> </parameter>
+        <classes>
+            <class name="tests.LoginTest"/>
+            <class name="tests.AnnotatorDashboardTest"/>
+        </classes>
+    </test>
+
+    <test name="Annotator Tasks Tests"  enabled="false">
+        <parameter name="userType" value="annotator"> </parameter>
+        <classes>
+            <class name="tests.LoginTest"/>
+            <class name="tests.AnnotatorTasksTest"/>
+        </classes>
+    </test>
+
+    <test name="Developer Dashboard Tests"  enabled="false">
+        <parameter name="userType" value="developer"> </parameter>
+        <classes>
+            <class name="tests.LoginTest"/>
+            <class name="tests.DeveloperDashboardTest"/>
+        </classes>
+    </test>
+
+    <test name="Developer Tasks Tests"  enabled="false">
+        <parameter name="userType" value="developer"> </parameter>
+        <classes>
+            <class name="tests.LoginTest"/>
+            <class name="tests.DeveloperTasksTest"/>
+        </classes>
+    </test>
+
+    <test name="Model History Tests"  enabled="false">
+        <parameter name="userType" value="developer"> </parameter>
+        <classes>
+            <class name="tests.LoginTest"/>
+            <class name="tests.ModelHistoryTest"/>
+        </classes>
+    </test>
+
+    <test name="Quick Stats Tests"  enabled="false">
+        <parameter name="userType" value="admin"><!-- admin / developer --></parameter>
+        <classes>
+            <class name="tests.LoginTest"/>
+            <class name="tests.QuickStatsTest"/>
+        </classes>
+    </test>
+
+</suite>
