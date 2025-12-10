@@ -41,6 +41,6 @@ public class LoginPage extends BaseLibrary {
     }
 
     public void validateLogin() {
-        Assert.assertTrue(waitForUrlContains("dashboard"), "Login failed — dashboard not loaded!");
+        Assert.assertTrue(waitForUrlContains("dashboard"), "Login failed — dashboard did not load!");
     }
 }
