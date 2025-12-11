@@ -280,13 +280,12 @@ public class BaseLibrary implements ApplicationUtility, ExcelUtility, PropertyUt
 
     @Override
     public String getInputFromUser() {
-        String otp = JOptionPane.showInputDialog(
+        return JOptionPane.showInputDialog(
                 null,
-                "Please enter the OTP recieved on Email:",
+                "Please enter the OTP received on Email:",
                 "Enter OTP",
                 JOptionPane.QUESTION_MESSAGE
         );
-        return otp;
     }
 
     @Override
