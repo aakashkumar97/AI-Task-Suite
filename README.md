@@ -222,6 +222,7 @@ The goal of this framework is to provide **fast, reliable, and repeatable automa
     
     Alternatively, you can run the tests from your IDE (e.g., IntelliJ IDEA, Eclipse) by configuring a TestNG run configuration.
 
+---
 
 ## 🧱 **Framework Architecture**
 
@@ -253,3 +254,4 @@ AI-Task-Automation/
 *Software Test Engineer*    
 
 **GitHub:** [https://github.com/aakashkumar97](https://github.com/aakashkumar97)
+
