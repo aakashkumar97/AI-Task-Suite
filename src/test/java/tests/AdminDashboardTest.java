@@ -1,14 +1,14 @@
 package tests;
 
-import base.BaseLibrary;
-import org.testng.annotations.BeforeTest;
+import base.BaseTest;
+import org.testng.annotations.BeforeClass;
 import pages.AdminDashboardPage;
 
-public class AdminDashboardTest extends BaseLibrary {
+public class AdminDashboardTest extends BaseTest {
     AdminDashboardPage ob;
 
-    @BeforeTest
-    public void assignObject(){
+    @BeforeClass(alwaysRun = true)
+    public void initPages() {
         ob = new AdminDashboardPage();
     }
 

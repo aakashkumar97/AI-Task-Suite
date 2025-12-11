@@ -45,8 +45,8 @@ public class ForgotPasswordPage extends BaseLibrary {
         Assert.assertTrue(waitForUrlContains("login"), "Login page not loaded.");
     }
 
-    public void sendOTP(){
-        waitForType(emailField, getProperty("fEmail"));
+    public void sendOTP(String email){
+        waitForType(emailField, email);
         waitForClick(sendOtpBtn);
     }
 
@@ -56,15 +56,15 @@ public class ForgotPasswordPage extends BaseLibrary {
         waitForClick(validateOtpBtn);
     }
 
-    public void setPassword(){
-        waitForType(newPasswordField, getProperty("fPassword"));
-        waitForType(confirmPasswordField, getProperty("fPassword"));
+    public void setPassword(String password){
+        waitForType(newPasswordField, password);
+        waitForType(confirmPasswordField, password);
         waitForClick(submitButton);
     }
 
-    public void validatePassword(){
-        waitForType(usernameField, getProperty("fEmail"));
-        waitForType(passwordField, getProperty("fPassword"));
+    public void validatePassword(String email, String password){
+        waitForType(usernameField, email);
+        waitForType(passwordField, password);
         waitForClick(loginBtn);
         Assert.assertTrue(waitForUrlContains("dashboard"), "Login failed — Password did not Reset!");
     }

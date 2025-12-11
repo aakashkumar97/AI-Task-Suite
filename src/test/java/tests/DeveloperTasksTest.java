@@ -1,14 +1,14 @@
 package tests;
 
-import base.BaseLibrary;
-import org.testng.annotations.BeforeTest;
+import base.BaseTest;
+import org.testng.annotations.BeforeClass;
 import pages.DeveloperTasksPage;
 
-public class DeveloperTasksTest extends BaseLibrary {
+public class DeveloperTasksTest extends BaseTest {
     DeveloperTasksPage ob;
 
-    @BeforeTest
-    public void assignObject(){
+    @BeforeClass(alwaysRun = true)
+    public void initPages(){
         ob = new DeveloperTasksPage();
     }
 }

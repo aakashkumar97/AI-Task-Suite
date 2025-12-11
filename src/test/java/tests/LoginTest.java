@@ -1,26 +1,34 @@
 package tests;
 
-import base.BaseLibrary;
-import org.testng.annotations.BeforeTest;
+import base.BaseTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 
-public class LoginTest extends BaseLibrary {
+public class LoginTest extends BaseTest {
     LoginPage ob;
 
-    @BeforeTest
-    @Parameters({"browser", "environment"})
-    public void launchUrl(String browser, String environment) {
-        LaunchURL(browser, environment);
+    @BeforeClass(alwaysRun = true)
+    public void initPages(){
         ob = new LoginPage();
     }
 
     @Test(priority = 1)
     @Parameters("userType")
-    public void verifyLoginFunctionality(String userType) {
+    public void fillCredentials(String userType) {
+
+        System.out.println("Driver is null? " + (driver == null));
         ob.fillCredentials(userType);
+    }
+
+    @Test(priority = 2)
+    public void clickLoginBtn() {
         ob.clickLogin();
+    }
+
+    @Test(priority = 3)
+    public void validateLogin() {
         ob.validateLogin();
     }
 

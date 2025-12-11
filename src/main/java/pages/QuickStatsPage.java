@@ -18,4 +18,12 @@ public class QuickStatsPage extends BaseLibrary {
     public QuickStatsPage(){
         PageFactory.initElements(driver, this);
     }
+
+    public void redirectToQuickStatsPage(){
+        waitForClick(quickStatsNav);
+    }
+
+    public void refreshStats(){
+        waitForClick(refresh);
+    }
 }

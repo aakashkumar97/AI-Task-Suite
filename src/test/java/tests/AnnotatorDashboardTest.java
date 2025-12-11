@@ -1,14 +1,14 @@
 package tests;
 
-import base.BaseLibrary;
-import org.testng.annotations.BeforeTest;
+import base.BaseTest;
+import org.testng.annotations.BeforeClass;
 import pages.AnnotatorDashboardPage;
 
-public class AnnotatorDashboardTest extends BaseLibrary {
+public class AnnotatorDashboardTest extends BaseTest {
     AnnotatorDashboardPage ob;
 
-    @BeforeTest
-    public void assignObject(){
+    @BeforeClass(alwaysRun = true)
+    public void initPages(){
        ob = new AnnotatorDashboardPage();
     }
 }

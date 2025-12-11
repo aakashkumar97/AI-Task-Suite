@@ -1,15 +1,15 @@
 package tests;
 
-import base.BaseLibrary;
-import org.testng.annotations.BeforeTest;
+import base.BaseTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.ClassTagsPage;
 
-public class ClassTagsTest extends BaseLibrary {
+public class ClassTagsTest extends BaseTest {
     ClassTagsPage ob;
 
-    @BeforeTest
-    public void assignObject(){
+    @BeforeClass(alwaysRun = true)
+    public void initPages(){
         ob = new ClassTagsPage();
     }
 

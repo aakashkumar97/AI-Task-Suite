@@ -1,14 +1,24 @@
 package tests;
 
-import base.BaseLibrary;
-import org.testng.annotations.BeforeTest;
+import base.BaseTest;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 import pages.QuickStatsPage;
 
-public class QuickStatsTest extends BaseLibrary {
+public class QuickStatsTest extends BaseTest {
     QuickStatsPage ob;
 
-    @BeforeTest
-    public void assignObject(){
+    @BeforeClass(alwaysRun = true)
+    public void initPages(){
         ob = new QuickStatsPage();
+    }
+
+    @Test(priority = 1)
+    public void redirectToQuickStatsPage(){
+        ob.redirectToQuickStatsPage();
+    }
+    @Test(priority = 2)
+    public void refreshStats(){
+        ob.refreshStats();
     }
 }

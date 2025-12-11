@@ -1,20 +1,16 @@
 package tests;
 
-import base.BaseLibrary;
-import org.testng.annotations.BeforeTest;
+import base.BaseTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.ForgotPasswordPage;
 
-import java.util.Scanner;
-
-public class ForgotPasswordTest extends BaseLibrary {
+public class ForgotPasswordTest extends BaseTest {
     ForgotPasswordPage ob;
 
-    @BeforeTest
-    @Parameters({"browser", "environment"})
-    public void launchUrl(String browser, String environment) {
-        LaunchURL(browser, environment);
+    @BeforeClass(alwaysRun = true)
+    public void initPages(){
         ob = new ForgotPasswordPage();
     }
 
@@ -29,9 +25,10 @@ public class ForgotPasswordTest extends BaseLibrary {
     }
 
     @Test(priority = 3)
-    public void verifyForgotPassword() {
+    @Parameters("email")
+    public void verifyForgotPassword(String email) {
         ob.verifyForgotPasswordRedirection();
-        ob.sendOTP();
+        ob.sendOTP(email);
     }
 
     @Test(priority = 4)
@@ -40,13 +37,15 @@ public class ForgotPasswordTest extends BaseLibrary {
     }
 
     @Test(priority = 5)
-    public void setPassword() {
-        ob.setPassword();
+    @Parameters("password")
+    public void setPassword(String password) {
+        ob.setPassword(password);
     }
 
     @Test(priority = 6)
-    public void validatePassword() {
-        ob.validatePassword();
+    @Parameters({"email", "password"})
+    public void validatePassword(String email, String password) {
+        ob.validatePassword(email, password);
     }
 
 }
