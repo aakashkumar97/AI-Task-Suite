@@ -50,17 +50,17 @@ public class UsersPage extends BaseLibrary {
     }
 
     public void createUser(){
-        waitForClick(userNav);
-        waitForClick(addUserBtn);
-        waitForType(firstName, getProperty("firstName"));
-        waitForType(lastName, getProperty("lastName"));
-        waitForType(email, getProperty("email"));
-        waitForType(phone, getProperty("phone"));
+        clickWhenReady(userNav);
+        clickWhenReady(addUserBtn);
+        typeWhenVisible(firstName, getProperty("firstName"));
+        typeWhenVisible(lastName, getProperty("lastName"));
+        typeWhenVisible(email, getProperty("email"));
+        typeWhenVisible(phone, getProperty("phone"));
         selectByText(role, getProperty("role"));
-        waitForType(password, getProperty("password"));
-        waitForType(confirmPassword, getProperty("password"));
-        waitForClick(createBtn);
-        waitForType(searchBox, getProperty("firstName") + " " + getProperty("lastName"));
+        typeWhenVisible(password, getProperty("password"));
+        typeWhenVisible(confirmPassword, getProperty("password"));
+        clickWhenReady(createBtn);
+        typeWhenVisible(searchBox, getProperty("firstName") + " " + getProperty("lastName"));
     }
 
 }
