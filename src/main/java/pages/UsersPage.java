@@ -14,9 +14,9 @@ public class UsersPage extends BaseLibrary {
     private WebElement userNav;
     @FindBy(xpath = "//input[@type='search']")
     private WebElement searchBox;
-    @FindBy(xpath = "//button[text()=' + User ']")
+    @FindBy(xpath = "//button[contains(text(),'+ User')]")
     private WebElement addUserBtn;
-    @FindBy(xpath = "//button[text()=' Assign Scope ']")
+    @FindBy(xpath = "//button[contains(text(),'Assign Scope')]")
     private WebElement assignScopeBtn;
     @FindBy(xpath = "//input[@formcontrolname='firstName']")
     private WebElement firstName;
@@ -38,11 +38,11 @@ public class UsersPage extends BaseLibrary {
     private WebElement createBtn;
     @FindBy(xpath = "//button[@class='filter-btn']")
     private WebElement filterBtn;
-    @FindBy(xpath = "//label[text()=' Select All ']/input")
+    @FindBy(xpath = "//label[contains(text(),'Select All')]/input")
     private WebElement selectAll;
-    @FindBy(xpath = "//label[text()=' Active ']/input")
+    @FindBy(xpath = "//label[contains(text(),'Active')]/input")
     private WebElement active;
-    @FindBy(xpath = "//label[text()=' Inactive ']/input")
+    @FindBy(xpath = "//label[contains(text(),'Inactive')]/input")
     private WebElement inactive;
 
     public UsersPage() {

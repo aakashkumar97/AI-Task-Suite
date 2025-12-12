@@ -23,6 +23,8 @@ public interface ApplicationUtility {
 
     void selectByValue(WebElement ele, String value);
 
+    String generatePassword(int length);
+
     void acceptAlert();
 
     String promptUserInput();

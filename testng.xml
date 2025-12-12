@@ -4,9 +4,9 @@
 
     <parameter name="browser" value="chrome"/> <!-- chrome / edge / firefox -->
     <parameter name="environment" value="stage"/> <!-- stage / dev / uat / prod -->
-    <parameter name="headless" value="true"/> <!-- true / false -->
+    <parameter name="headless" value="false"/> <!-- true / false -->
 
-    <test name="Login Tests"  enabled="true">
+    <test name="Login Tests"  enabled="false">
         <parameter name="userType" value="admin"/> <!-- admin / developer / annotator -->
         <classes>
             <class name="tests.LoginTest"/>
@@ -16,7 +16,7 @@
     <test name="Forgot Password Tests"  enabled="true">
         <parameter name="userType" value="admin"/>
         <parameter name="email" value="aakash.kumar@garudauav.com"/> <!-- enter a valid email to receive OTP -->
-        <parameter name="password" value="Garuda@123"/> <!-- enter the new password -->
+        <parameter name="password" value="Garuda@123"/> <!-- enter the new password or leave Blank for random Password-->
         <classes>
             <class name="tests.ForgotPasswordTest"/>
         </classes>
@@ -92,7 +92,7 @@
         </classes>
     </test>
 
-    <test name="Quick Stats Tests"  enabled="true">
+    <test name="Quick Stats Tests"  enabled="false">
         <parameter name="userType" value="admin"/> <!-- admin / developer -->
         <classes>
             <class name="tests.QuickStatsTest"/>

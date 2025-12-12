@@ -18,9 +18,9 @@ public class ModelHistoryPage extends BaseLibrary {
     private WebElement seeMore;
     @FindBy(xpath = "//button[@class='dropdown-btn']")
     private WebElement dropDownBtn;
-    @FindBy(xpath = "//button[text()=' Train Data ']")
+    @FindBy(xpath = "//button[contains(text(),'Train Data')]")
     private WebElement trainData;
-    @FindBy(xpath = "//button[text()=' Train Model ']")
+    @FindBy(xpath = "//button[contains(text(),'Train Model')]")
     private WebElement trainModel;
     @FindBy(xpath = "//span[@class='close-btn material-symbols-outlined']")
     private WebElement closeModal;

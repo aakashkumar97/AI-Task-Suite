@@ -18,7 +18,7 @@ public class ProjectsPage extends BaseLibrary {
     private WebElement annotationTab;
     @FindBy(xpath = "//a[@href='/project-management/developer']")
     private WebElement developerTab;
-    @FindBy(xpath = "//button[text()=' + Project ']")
+    @FindBy(xpath = "//button[contains(text(),'+ Project')]")
     private WebElement addProjectBtn;
     @FindBy(xpath = "//input[@formcontrolname='project_name']")
     private WebElement projectNameField;
@@ -32,7 +32,7 @@ public class ProjectsPage extends BaseLibrary {
     private WebElement endDate;
     @FindBy(xpath = "//span[@class='dropdown-btn']")
     private WebElement subsectorDropdown;
-    @FindBy(xpath = "//div[text()='Select All']")
+    @FindBy(xpath = "//div[contains(text(),'Select All')]")
     private WebElement selectAll;
     @FindBy(xpath = "//span[@class='dropdown-multiselect__caret']")
     private WebElement closeDropdown;

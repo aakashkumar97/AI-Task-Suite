@@ -14,7 +14,7 @@ public class DatasetsPage extends BaseLibrary {
     private WebElement datasetNav;
     @FindBy(xpath = "//input[@type='search']")
     private WebElement searchBox;
-    @FindBy(xpath = "//button[text()=' + Dataset ']")
+    @FindBy(xpath = "//button[contains(text(),'+ Dataset')]")
     private WebElement addDatasetBtn;
     @FindBy(xpath = "//input[@formcontrolname='dataset_name']")
     private WebElement datasetNameField;

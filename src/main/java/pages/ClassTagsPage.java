@@ -15,7 +15,7 @@ public class ClassTagsPage extends BaseLibrary {
     private WebElement classTagsNav;
     @FindBy(xpath = "//input[@type='search']")
     private WebElement searchBox;
-    @FindBy(xpath = "//button[text()=' + Class Tag ']")
+    @FindBy(xpath = "//button[contains(text(),'+ Class Tag')]")
     private WebElement addClassTagBtn;
     @FindBy(xpath = "//select[@formcontrolname='industry']")
     private WebElement industryType;

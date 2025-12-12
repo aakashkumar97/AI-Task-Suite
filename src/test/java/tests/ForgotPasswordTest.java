@@ -26,10 +26,10 @@ public class ForgotPasswordTest extends BaseTest {
     }
 
     @Test(priority = 3)
-    @Parameters("email")
-    public void sendOTP(String email) {
+    @Parameters({"email", "password"})
+    public void sendOTP(String email,  String password) {
         ob.forgotPasswordRedirection();
-        ob.sendOTP(email);
+        ob.sendOTP(email,password);
     }
 
     @Test(priority = 4)
@@ -38,15 +38,13 @@ public class ForgotPasswordTest extends BaseTest {
     }
 
     @Test(priority = 5)
-    @Parameters("password")
-    public void setPassword(String password) {
-        ob.setPassword(password);
+    public void setPassword() {
+        ob.setPassword();
     }
 
     @Test(priority = 6)
-    @Parameters({"email", "password"})
-    public void validateNewPassword(String email, String password) {
-        ob.validatePassword(email, password);
+    public void validateNewPassword() {
+        ob.validatePassword();
     }
 
 }

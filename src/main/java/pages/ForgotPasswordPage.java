@@ -7,23 +7,23 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 public class ForgotPasswordPage extends BaseLibrary {
-    @FindBy(xpath = "//a[@type='button']")
+    @FindBy(xpath = "//a[contains(text(),'Forgot Password')]")
     private WebElement forgotPasswordBtn;
-    @FindBy(xpath = "//a[@type='button']")
+    @FindBy(xpath = "//a[contains(text(),'Back to Login')]")
     private WebElement backToLoginBtn;
     @FindBy(xpath = "//input[@formcontrolname='email']")
     private WebElement emailField;
-    @FindBy(xpath = "//button[text()='Send OTP']")
+    @FindBy(xpath = "//button[contains(text(),'Send OTP')]")
     private WebElement sendOtpBtn;
     @FindBy(xpath = "//input[@formcontrolname='otp']")
     private WebElement otpField;
-    @FindBy(xpath = "//button[text()=' Validate OTP ']")
+    @FindBy(xpath = "//button[contains(text(),'Validate OTP')]")
     private WebElement validateOtpBtn;
     @FindBy(xpath = "//input[@formcontrolname='newPassword']")
     private WebElement newPasswordField;
     @FindBy(xpath = "//input[@formcontrolname='confirmedPassword']")
     private WebElement confirmPasswordField;
-    @FindBy(xpath = "//button[text()='Submit']")
+    @FindBy(xpath = "//button[contains(text(),'Submit')]")
     private WebElement submitButton;
     @FindBy(xpath = "//input[@formcontrolname='username']")
     private WebElement usernameField;
@@ -31,6 +31,9 @@ public class ForgotPasswordPage extends BaseLibrary {
     private WebElement passwordField;
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement loginBtn;
+
+    private String username;
+    private String resetPassword;
 
     public ForgotPasswordPage() {
         PageFactory.initElements(driver, this);
@@ -45,7 +48,15 @@ public class ForgotPasswordPage extends BaseLibrary {
         Assert.assertTrue(waitForUrlContains("login"), "Login page not loaded!");
     }
 
-    public void sendOTP(String email){
+    public void sendOTP(String email, String password) {
+        username=email;
+        if (password==null||password.isBlank()){
+        resetPassword = generatePassword(10);
+        System.out.println("Password not provided. Random password generated: " + resetPassword);
+        }
+        else {
+            resetPassword = password;
+        }
         typeWhenVisible(emailField, email);
         clickWhenReady(sendOtpBtn);
         waitForVisibility(otpField);
@@ -57,15 +68,15 @@ public class ForgotPasswordPage extends BaseLibrary {
         clickWhenReady(validateOtpBtn);
     }
 
-    public void setPassword(String password){
-        typeWhenVisible(newPasswordField, password);
-        typeWhenVisible(confirmPasswordField, password);
+    public void setPassword(){
+        typeWhenVisible(newPasswordField, resetPassword);
+        typeWhenVisible(confirmPasswordField, resetPassword);
         clickWhenReady(submitButton);
     }
 
-    public void validatePassword(String email, String password){
-        typeWhenVisible(usernameField, email);
-        typeWhenVisible(passwordField, password);
+    public void validatePassword(){
+        typeWhenVisible(usernameField, username);
+        typeWhenVisible(passwordField, resetPassword);
         clickWhenReady(loginBtn);
         Assert.assertTrue(waitForUrlContains("dashboard"), "Login failed — Password did not Reset!");
     }
