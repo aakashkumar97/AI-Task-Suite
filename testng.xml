@@ -5,14 +5,14 @@
     <parameter name="browser" value="chrome"><!-- chrome / edge / firefox --></parameter>
     <parameter name="environment" value="stage"><!-- stage / dev / uat / prod --></parameter>
 
-    <test name="Login Tests"  enabled="false">
+    <test name="Login Tests"  enabled="true">
         <parameter name="userType" value="admin"><!-- admin / developer / annotator --></parameter>
         <classes>
             <class name="tests.LoginTest"/>
         </classes>
     </test>
 
-    <test name="Forgot Password Tests"  enabled="false">
+    <test name="Forgot Password Tests"  enabled="true">
         <parameter name="userType" value="admin"> </parameter>
         <parameter name="email" value="aakash.kumar@garudauav.com"><!-- enter a valid email to receive OTP --></parameter>
         <parameter name="password" value="Garuda@123"><!-- enter the new password --></parameter>

@@ -1,6 +1,7 @@
 package tests;
 
 import base.BaseTest;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -15,19 +16,19 @@ public class ForgotPasswordTest extends BaseTest {
     }
 
     @Test(priority = 1)
-    public void verifyForgotPasswordRedirection() {
-        ob.verifyForgotPasswordRedirection();
+    public void forgotPasswordRedirection() {
+        ob.forgotPasswordRedirection();
     }
 
     @Test(priority = 2)
-    public void verifyBackToLogin() {
-        ob.verifyBackToLogin();
+    public void backToLogin() {
+        ob.backToLogin();
     }
 
     @Test(priority = 3)
     @Parameters("email")
-    public void verifyForgotPassword(String email) {
-        ob.verifyForgotPasswordRedirection();
+    public void sendOTP(String email) {
+        ob.forgotPasswordRedirection();
         ob.sendOTP(email);
     }
 
@@ -44,7 +45,7 @@ public class ForgotPasswordTest extends BaseTest {
 
     @Test(priority = 6)
     @Parameters({"email", "password"})
-    public void validatePassword(String email, String password) {
+    public void validateNewPassword(String email, String password) {
         ob.validatePassword(email, password);
     }
 

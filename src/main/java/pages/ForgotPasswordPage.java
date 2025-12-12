@@ -36,11 +36,11 @@ public class ForgotPasswordPage extends BaseLibrary {
         PageFactory.initElements(driver, this);
     }
 
-    public void verifyForgotPasswordRedirection(){
+    public void forgotPasswordRedirection(){
         clickWhenReady(forgotPasswordBtn);
         Assert.assertTrue(waitForUrlContains("forgot-password"), "Forgot Password page not loaded!");
     }
-    public void verifyBackToLogin(){
+    public void backToLogin(){
         clickWhenReady(backToLoginBtn);
         Assert.assertTrue(waitForUrlContains("login"), "Login page not loaded!");
     }
@@ -48,6 +48,7 @@ public class ForgotPasswordPage extends BaseLibrary {
     public void sendOTP(String email){
         typeWhenVisible(emailField, email);
         clickWhenReady(sendOtpBtn);
+        waitForVisibility(otpField);
     }
 
     public void validateOTP(){

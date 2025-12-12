@@ -1,6 +1,7 @@
 package tests;
 
 import base.BaseTest;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
