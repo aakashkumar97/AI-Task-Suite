@@ -39,16 +39,16 @@ public class DatasetsPage extends BaseLibrary {
 
     public void createDataset(){
         String datasetName = getProperty("datasetName");
-        waitForClick(datasetNav);
-        waitForClick(addDatasetBtn);
-        waitForType(datasetNameField,datasetName);
-        waitForClick(browseBtn);
+        clickWhenReady(datasetNav);
+        clickWhenReady(addDatasetBtn);
+        typeWhenVisible(datasetNameField,datasetName);
+        clickWhenReady(browseBtn);
         uploadFile(getProperty("datasetPath"));
-        acceptBrowserPopup();
-        waitForClick(nextBtn);
-        waitUntilModalClose(uploadModal);
+        acceptAlert();
+        clickWhenReady(nextBtn);
+        waitForInvisibility(uploadModal);
         driver.navigate().refresh();
-        waitForType(searchBox,datasetName);
+        typeWhenVisible(searchBox,datasetName);
     }
 
 }

@@ -37,35 +37,35 @@ public class ForgotPasswordPage extends BaseLibrary {
     }
 
     public void verifyForgotPasswordRedirection(){
-        waitForClick(forgotPasswordBtn);
-        Assert.assertTrue(waitForUrlContains("forgot-password"), "Forgot Password page not loaded.");
+        clickWhenReady(forgotPasswordBtn);
+        Assert.assertTrue(waitForUrlContains("forgot-password"), "Forgot Password page not loaded!");
     }
     public void verifyBackToLogin(){
-        waitForClick(backToLoginBtn);
-        Assert.assertTrue(waitForUrlContains("login"), "Login page not loaded.");
+        clickWhenReady(backToLoginBtn);
+        Assert.assertTrue(waitForUrlContains("login"), "Login page not loaded!");
     }
 
     public void sendOTP(String email){
-        waitForType(emailField, email);
-        waitForClick(sendOtpBtn);
+        typeWhenVisible(emailField, email);
+        clickWhenReady(sendOtpBtn);
     }
 
     public void validateOTP(){
-        String otp = getInputFromUser();
-        waitForType(otpField, otp);
-        waitForClick(validateOtpBtn);
+        String otp = promptUserInput();
+        typeWhenVisible(otpField, otp);
+        clickWhenReady(validateOtpBtn);
     }
 
     public void setPassword(String password){
-        waitForType(newPasswordField, password);
-        waitForType(confirmPasswordField, password);
-        waitForClick(submitButton);
+        typeWhenVisible(newPasswordField, password);
+        typeWhenVisible(confirmPasswordField, password);
+        clickWhenReady(submitButton);
     }
 
     public void validatePassword(String email, String password){
-        waitForType(usernameField, email);
-        waitForType(passwordField, password);
-        waitForClick(loginBtn);
+        typeWhenVisible(usernameField, email);
+        typeWhenVisible(passwordField, password);
+        clickWhenReady(loginBtn);
         Assert.assertTrue(waitForUrlContains("dashboard"), "Login failed — Password did not Reset!");
     }
 }

@@ -3,14 +3,16 @@ package utils;
 import org.openqa.selenium.WebElement;
 
 public interface WaitUtility {
-    void waitForClick(WebElement ele);
+    void clickWhenReady(WebElement ele);
 
-    void waitForType(WebElement ele, String text);
+    void typeWhenVisible(WebElement ele, String text);
 
     boolean waitForUrlContains(String partialUrl);
 
-    void alertIsPresent();
+    void waitForInvisibility(WebElement ele);
 
-    void waitUntilModalClose(WebElement ele);
+    void waitForVisibility(WebElement ele);
+
+    void waitForAlert();
 
 }

@@ -39,20 +39,20 @@ public class ClassTagsPage extends BaseLibrary {
     }
 
     public void createClass(){
-        waitForClick(classTagsNav);
-        waitForClick(addClassTagBtn);
+        clickWhenReady(classTagsNav);
+        clickWhenReady(addClassTagBtn);
         selectByText(industryType, "Highways");
         selectByText(subSector, "Operation and Maintenance");
-        waitForClick(polygon);
-        waitForType(classes, "automated polygon");
+        clickWhenReady(polygon);
+        typeWhenVisible(classes, "automated polygon");
         classes.sendKeys(Keys.ENTER);
-        waitForClick(box);
-        waitForType(classes, "automated box");
+        clickWhenReady(box);
+        typeWhenVisible(classes, "automated box");
         classes.sendKeys(Keys.ENTER);
-        waitForClick(lineString);
-        waitForType(classes, "automated linestring");
+        clickWhenReady(lineString);
+        typeWhenVisible(classes, "automated linestring");
         classes.sendKeys(Keys.ENTER);
-        waitForClick(createBtn);
+        clickWhenReady(createBtn);
     }
 
 

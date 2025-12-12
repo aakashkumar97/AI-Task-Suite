@@ -9,7 +9,7 @@ public interface ApplicationUtility {
 
     void rightClick(WebElement ele);
 
-    void actionClick(WebElement ele);
+    void clickUsingActions(WebElement ele);
 
     void moveToElement(WebElement ele);
 
@@ -23,9 +23,9 @@ public interface ApplicationUtility {
 
     void selectByValue(WebElement ele, String value);
 
-    void acceptBrowserPopup();
+    void acceptAlert();
 
-    String getInputFromUser();
+    String promptUserInput();
 
     List<String> getDropdownList(WebElement ele);
 

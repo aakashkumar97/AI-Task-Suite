@@ -88,13 +88,13 @@ public class BaseLibrary implements ApplicationUtility, ExcelUtility, PropertyUt
     }
 
     @Override
-    public void waitForClick(WebElement ele) {
+    public void clickWhenReady(WebElement ele) {
         explicitWait().until(ExpectedConditions.elementToBeClickable(ele));
         ele.click();
     }
 
     @Override
-    public void waitForType(WebElement ele, String text) {
+    public void typeWhenVisible(WebElement ele, String text) {
         explicitWait().until(ExpectedConditions.visibilityOf(ele));
         ele.sendKeys(text);
     }
@@ -109,13 +109,18 @@ public class BaseLibrary implements ApplicationUtility, ExcelUtility, PropertyUt
     }
 
     @Override
-    public void alertIsPresent() {
-        explicitWait().until(ExpectedConditions.alertIsPresent());
+    public void waitForInvisibility(WebElement ele) {
+        explicitWait().until(ExpectedConditions.invisibilityOf(ele));
     }
 
     @Override
-    public void waitUntilModalClose(WebElement ele) {
-        explicitWait().until(ExpectedConditions.invisibilityOf(ele));
+    public void waitForVisibility(WebElement ele) {
+        explicitWait().until(ExpectedConditions.visibilityOf(ele));
+    }
+
+    @Override
+    public void waitForAlert() {
+        explicitWait().until(ExpectedConditions.alertIsPresent());
     }
 
     @Override
@@ -143,16 +148,16 @@ public class BaseLibrary implements ApplicationUtility, ExcelUtility, PropertyUt
     }
 
     @Override
-    public String getExcelData(int sheetNo, int col, int row) {
+    public String getCellValue(int sheetIndex, int rowIndex, int colIndex) {
         Path excelPath = Paths.get(System.getProperty("user.dir"), getProperty("excelFilePath"));
         try (FileInputStream fis = new FileInputStream(excelPath.toFile());
              XSSFWorkbook workbook = new XSSFWorkbook(fis)) {
 
-            XSSFSheet sheet = workbook.getSheetAt(sheetNo);
-            return sheet.getRow(row).getCell(col).getStringCellValue();
+            XSSFSheet sheet = workbook.getSheetAt(sheetIndex);
+            return sheet.getRow(rowIndex).getCell(colIndex).getStringCellValue();
 
         } catch (Exception e) {
-            System.out.println("Issue in getExcelData: " + e.getMessage());
+            System.out.println("Issue in getCellValue: " + e.getMessage());
             return null;
         }
     }
@@ -170,7 +175,7 @@ public class BaseLibrary implements ApplicationUtility, ExcelUtility, PropertyUt
     }
 
     @Override
-    public void actionClick(WebElement ele) {
+    public void clickUsingActions(WebElement ele) {
         Actions act = new Actions(driver);
         act.click(ele).perform();
     }
@@ -257,7 +262,7 @@ public class BaseLibrary implements ApplicationUtility, ExcelUtility, PropertyUt
     }
 
     @Override
-    public void acceptBrowserPopup() {
+    public void acceptAlert() {
         try {
             Robot robot = new Robot();
             robot.setAutoDelay(200);
@@ -279,7 +284,7 @@ public class BaseLibrary implements ApplicationUtility, ExcelUtility, PropertyUt
     }
 
     @Override
-    public String getInputFromUser() {
+    public String promptUserInput() {
         return JOptionPane.showInputDialog(
                 null,
                 "Please enter the OTP received on Email:",

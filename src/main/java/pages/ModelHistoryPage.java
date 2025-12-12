@@ -34,15 +34,15 @@ public class ModelHistoryPage extends BaseLibrary {
     }
 
     public void seeModelDetails(){
-        waitForClick(modelHistoryNav);
-        waitForClick(seeMore);
+        clickWhenReady(modelHistoryNav);
+        clickWhenReady(seeMore);
         for (int i=0; i<3; i++){
-            waitForClick(nextBtn);
+            clickWhenReady(nextBtn);
         }
         for (int i=0; i<3; i++){
-            waitForClick(prevBtn);
+            clickWhenReady(prevBtn);
         }
-        waitForClick(closeModal);
+        clickWhenReady(closeModal);
     }
 
 }

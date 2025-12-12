@@ -1,5 +1,5 @@
 package utils;
 
 public interface ExcelUtility {
-    String getExcelData(int sheetNo, int col, int row);
+    String getCellValue(int sheetIndex, int rowIndex, int colIndex);
 }

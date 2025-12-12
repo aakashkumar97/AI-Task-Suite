@@ -50,19 +50,19 @@ public class ProjectsPage extends BaseLibrary {
     public void createProject(){
         String projectName = getProperty("projectName");
         String datasetName = getProperty("datasetName");
-        waitForClick(projectsNav);
-        waitForClick(addProjectBtn);
-        waitForType(projectNameField, projectName);
+        clickWhenReady(projectsNav);
+        clickWhenReady(addProjectBtn);
+        typeWhenVisible(projectNameField, projectName);
         selectByText(sectorDropdown, "Renewable Energy");
         selectByText(priorityDropdown, "High");
-        waitForType(startDate, "2025-12-10");
-        waitForType(endDate, "2025-12-12");
-        waitForClick(subsectorDropdown);
-        waitForClick(selectAll);
-        waitForClick(closeDropdown);
+        typeWhenVisible(startDate, "2025-12-10");
+        typeWhenVisible(endDate, "2025-12-12");
+        clickWhenReady(subsectorDropdown);
+        clickWhenReady(selectAll);
+        clickWhenReady(closeDropdown);
         selectByText(datasetSelect,datasetName);
-        waitForClick(createBtn);
-        waitForType(searchBox, projectName);
+        clickWhenReady(createBtn);
+        typeWhenVisible(searchBox, projectName);
     }
 
 }

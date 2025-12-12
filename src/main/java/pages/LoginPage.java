@@ -32,12 +32,12 @@ public class LoginPage extends BaseLibrary {
             default -> throw new IllegalArgumentException("Invalid Environment " + userType);
         };
         String password = getProperty("password");
-        waitForType(usernameField, username);
-        waitForType(passwordField, password);
+        typeWhenVisible(usernameField, username);
+        typeWhenVisible(passwordField, password);
     }
 
     public void clickLogin() {
-        waitForClick(loginBtn);
+        clickWhenReady(loginBtn);
     }
 
     public void validateLogin() {
