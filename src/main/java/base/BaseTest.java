@@ -7,10 +7,15 @@ import pages.LoginPage;
 
 public class BaseTest extends BaseLibrary{
     @BeforeClass()
-    @Parameters({"browser", "environment", "userType"})
-    public void launchUrlAndLogin(String browser, String environment, String userType) {
+    @Parameters({"browser", "environment","headless", "userType"})
+    public void launchUrlAndLogin(String browser, String environment, String headless, String userType) {
+
+        boolean isHeadless = Boolean.parseBoolean(headless);
+
         String currentClass = this.getClass().getSimpleName();
-        LaunchURL(browser, environment);
+
+        LaunchURL(browser, environment, isHeadless);
+
         if (currentClass.equals("LoginTest")||currentClass.equals("ForgotPasswordTest")) {
             System.out.println("Skipping login for "+ currentClass+".");
             return;

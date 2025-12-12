@@ -4,10 +4,13 @@ import org.apache.commons.io.FileUtils;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.*;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -48,39 +51,71 @@ public class BaseLibrary implements ApplicationUtility, ExcelUtility, PropertyUt
     }
 
 
-    public void LaunchURL(String browser, String environment) {
-        // Initialize URL
+    public void LaunchURL(String browser, String environment, boolean isHeadless) {
+
         String url = switch (environment.toLowerCase()) {
             case "dev" -> getProperty("devURL");
             case "stage" -> getProperty("stageURL");
             default -> throw new IllegalArgumentException("Invalid Environment " + environment);
         };
-        // Initialize browser
+
         switch (browser.toLowerCase()) {
+
             case "chrome":
-                ChromeOptions options = new ChromeOptions();
-                options.addArguments("--disable-features=PasswordManager");
-                // options.addArguments("--headless=new");      //Headless Mode
-                options.addArguments("--window-size=1920,1080");
-                options.setExperimentalOption("prefs", Map.of(
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--disable-features=PasswordManager");
+
+                if (isHeadless) {
+                    chromeOptions.addArguments("--headless=new");
+                    chromeOptions.addArguments("--window-size=1920,1080");
+                }
+
+                chromeOptions.setExperimentalOption("prefs", Map.of(
                         "credentials_enable_service", false,
                         "profile.password_manager_leak_detection", false
                 ));
-                driver = new ChromeDriver(options);
+
+                driver = new ChromeDriver(chromeOptions);
                 break;
+
             case "edge":
-                driver = new EdgeDriver();
+                EdgeOptions edgeOptions = new EdgeOptions();
+                edgeOptions.addArguments("--disable-features=PasswordManager");
+
+                if (isHeadless) {
+                    edgeOptions.addArguments("--headless=new");
+                    edgeOptions.addArguments("--window-size=1920,1080");
+                }
+
+                driver = new EdgeDriver(edgeOptions);
                 break;
+
             case "firefox":
-                driver = new FirefoxDriver();
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
+                firefoxOptions.addArguments("--disable-features=PasswordManager");
+
+                if (isHeadless) {
+                    firefoxOptions.addArguments("--headless");
+                    firefoxOptions.addArguments("--width=1920");
+                    firefoxOptions.addArguments("--height=1080");
+                }
+
+                driver = new FirefoxDriver(firefoxOptions);
                 break;
+
             default:
                 throw new IllegalArgumentException("Unsupported browser: " + browser);
         }
 
         driver.get(url);
-        driver.manage().window().maximize();
+
+        if (!isHeadless) {
+            driver.manage().window().maximize();
+        } else {
+            driver.manage().window().setSize(new Dimension(1920, 1080));
+        }
     }
+
 
     private WebDriverWait explicitWait() {
         int waitTime = Integer.parseInt(getProperty("explicitWait"));
