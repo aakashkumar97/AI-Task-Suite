@@ -297,6 +297,47 @@ public class BaseLibrary implements ApplicationUtility, ExcelUtility, PropertyUt
     }
 
     @Override
+    public String generatePassword(int length) {
+
+        if (length < 8) {
+            throw new IllegalArgumentException("Password length must be at least 8 characters");
+        }
+
+        String upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String lower = "abcdefghijklmnopqrstuvwxyz";
+        String digits = "0123456789";
+        String special = "!@#$%^&*()-_=+{}[]|:;<>,.?/";
+
+        // Ensure at least one of each requirement
+        StringBuilder password = new StringBuilder();
+        Random random = new Random();
+
+        password.append(upper.charAt(random.nextInt(upper.length())));
+        password.append(lower.charAt(random.nextInt(lower.length())));
+        password.append(digits.charAt(random.nextInt(digits.length())));
+        password.append(special.charAt(random.nextInt(special.length())));
+
+        // Remaining characters (random mix)
+        String allChars = upper + lower + digits + special;
+
+        for (int i = 4; i < length; i++) {
+            password.append(allChars.charAt(random.nextInt(allChars.length())));
+        }
+
+        // Shuffle to avoid predictable pattern (Upper-lower-digit-special)
+        List<Character> pwdChars = password.chars()
+                .mapToObj(c -> (char) c)
+                .collect(Collectors.toList());
+
+        Collections.shuffle(pwdChars);
+
+        StringBuilder finalPassword = new StringBuilder();
+        pwdChars.forEach(finalPassword::append);
+
+        return finalPassword.toString();
+    }
+
+    @Override
     public void acceptAlert() {
         try {
             Robot robot = new Robot();
