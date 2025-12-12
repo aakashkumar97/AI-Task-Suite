@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
 
-    <parameter name="browser" value="edge"><!-- chrome / edge / firefox --></parameter>
+    <parameter name="browser" value="chrome"><!-- chrome / edge / firefox --></parameter>
     <parameter name="environment" value="stage"><!-- stage / dev / uat / prod --></parameter>
 
     <test name="Login Tests"  enabled="false">
@@ -12,7 +12,7 @@
         </classes>
     </test>
 
-    <test name="Forgot Password Tests"  enabled="true">
+    <test name="Forgot Password Tests"  enabled="false">
         <parameter name="userType" value="admin"> </parameter>
         <parameter name="email" value="aakash.kumar@garudauav.com"><!-- enter a valid email to receive OTP --></parameter>
         <parameter name="password" value="Garuda@123"><!-- enter the new password --></parameter>
@@ -91,7 +91,7 @@
         </classes>
     </test>
 
-    <test name="Quick Stats Tests"  enabled="false">
+    <test name="Quick Stats Tests"  enabled="true">
         <parameter name="userType" value="admin"><!-- admin / developer --></parameter>
         <classes>
             <class name="tests.QuickStatsTest"/>
