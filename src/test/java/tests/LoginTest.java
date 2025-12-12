@@ -18,8 +18,6 @@ public class LoginTest extends BaseTest {
     @Test(priority = 1)
     @Parameters("userType")
     public void fillCredentials(String userType) {
-
-        System.out.println("Driver is null? " + (driver == null));
         ob.fillCredentials(userType);
     }
 
