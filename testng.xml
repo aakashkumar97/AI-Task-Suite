@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite" parallel="false" preserve-order="true">
+<suite name="Suite" parallel="false">
 
     <parameter name="browser" value="chrome"/> <!-- chrome / edge / firefox -->
     <parameter name="environment" value="stage"/> <!-- stage / dev / uat / prod -->
@@ -13,7 +13,7 @@
         </classes>
     </test>
 
-    <test name="Forgot Password Tests"  enabled="true">
+    <test name="Forgot Password Tests"  enabled="false">
         <parameter name="userType" value="admin"/>
         <parameter name="email" value="aakash.kumar@garudauav.com"/> <!-- enter a valid email to receive OTP -->
         <parameter name="password" value="Garuda@123"/> <!-- enter the new password or leave Blank for random Password-->
@@ -22,35 +22,35 @@
         </classes>
     </test>
 
-    <test name="Admin Dashboard Tests"  enabled="false">
+    <test name="Admin Dashboard Tests"  enabled="true">
         <parameter name="userType" value="admin"/>
         <classes>
             <class name="tests.AdminDashboardTest"/>
         </classes>
     </test>
 
-    <test name="Datasets Tests"  enabled="false">
+    <test name="Datasets Tests"  enabled="true">
         <parameter name="userType" value="admin"/>
         <classes>
             <class name="tests.DatasetsTest"/>
         </classes>
     </test>
 
-    <test name="Projects Tests"  enabled="false">
+    <test name="Projects Tests"  enabled="true">
         <parameter name="userType" value="admin"/>
         <classes>
             <class name="tests.ProjectsTest"/>
         </classes>
     </test>
 
-    <test name="Class Tags Tests"  enabled="false">
+    <test name="Class Tags Tests"  enabled="true">
         <parameter name="userType" value="admin"/>
         <classes>
             <class name="tests.ClassTagsTest"/>
         </classes>
     </test>
 
-    <test name="Users Tests"  enabled="false">
+    <test name="Users Tests"  enabled="true">
         <parameter name="userType" value="admin"/>
         <classes>
             <class name="tests.UsersTest"/>

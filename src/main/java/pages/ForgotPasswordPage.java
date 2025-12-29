@@ -31,6 +31,8 @@ public class ForgotPasswordPage extends BaseLibrary {
     private WebElement passwordField;
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement loginBtn;
+    @FindBy(xpath = "//div[@class='notyf__message']")
+    private WebElement successMessage;
 
     private String username;
     private String resetPassword;
@@ -72,6 +74,7 @@ public class ForgotPasswordPage extends BaseLibrary {
         typeWhenVisible(newPasswordField, resetPassword);
         typeWhenVisible(confirmPasswordField, resetPassword);
         clickWhenReady(submitButton);
+        assertCreation(successMessage);
     }
 
     public void validatePassword(){

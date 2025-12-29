@@ -15,6 +15,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import utils.*;
@@ -145,6 +146,13 @@ public class BaseLibrary implements ApplicationUtility, ExcelUtility, PropertyUt
     @Override
     public void waitForInvisibility(WebElement ele) {
         explicitWait().until(ExpectedConditions.invisibilityOf(ele));
+    }
+
+    @Override
+    public void waitForUploadToComplete(WebElement uploadLoader, int maxWaitMinutes) {
+        new WebDriverWait(driver, Duration.ofMinutes(maxWaitMinutes))
+                .pollingEvery(Duration.ofSeconds(1))
+                .until(ExpectedConditions.invisibilityOf(uploadLoader));
     }
 
     @Override
@@ -373,6 +381,19 @@ public class BaseLibrary implements ApplicationUtility, ExcelUtility, PropertyUt
         List<String> optionTexts = new ArrayList<>();
         for (WebElement opt : new Select(ele).getOptions()) optionTexts.add(opt.getText());
         return optionTexts;
+    }
+
+    @Override
+    public void assertCreation(WebElement successMessage) {
+        waitForVisibility(successMessage);
+        String actualMsg = successMessage.getText().trim();
+
+        System.out.println("Success Message: " + actualMsg);
+
+        Assert.assertTrue(
+                actualMsg.toLowerCase().contains("success"),
+                "Expected success message not shown!"
+        );
     }
 
     @AfterMethod

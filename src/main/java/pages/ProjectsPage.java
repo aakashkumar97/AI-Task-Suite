@@ -42,6 +42,8 @@ public class ProjectsPage extends BaseLibrary {
     private WebElement cancelBtn;
     @FindBy(xpath = "//button[@class='btn btn-success']")
     private WebElement createBtn;
+    @FindBy(xpath = "//div[@class='notyf__message']")
+    private WebElement successMessage;
 
     public ProjectsPage(){
         PageFactory.initElements(driver, this);
@@ -62,6 +64,7 @@ public class ProjectsPage extends BaseLibrary {
         clickWhenReady(closeDropdown);
         selectByText(datasetSelect,datasetName);
         clickWhenReady(createBtn);
+        assertCreation(successMessage);
         typeWhenVisible(searchBox, projectName);
     }
 

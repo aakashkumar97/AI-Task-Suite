@@ -44,6 +44,8 @@ public class UsersPage extends BaseLibrary {
     private WebElement active;
     @FindBy(xpath = "//label[contains(text(),'Inactive')]/input")
     private WebElement inactive;
+    @FindBy(xpath = "//div[@class='notyf__message']")
+    private WebElement successMessage;
 
     public UsersPage() {
         PageFactory.initElements(driver, this);
@@ -60,6 +62,7 @@ public class UsersPage extends BaseLibrary {
         typeWhenVisible(password, getProperty("password"));
         typeWhenVisible(confirmPassword, getProperty("password"));
         clickWhenReady(createBtn);
+        assertCreation(successMessage);
         typeWhenVisible(searchBox, getProperty("firstName") + " " + getProperty("lastName"));
     }
 

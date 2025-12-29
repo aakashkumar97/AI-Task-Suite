@@ -31,4 +31,6 @@ public interface ApplicationUtility {
 
     List<String> getDropdownList(WebElement ele);
 
+    void assertCreation(WebElement successMessage);
+
 }

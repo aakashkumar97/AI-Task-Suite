@@ -9,15 +9,87 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Suite</th></tr>
-<tr><td><a href="#t0">Forgot Password Tests</a></td><td class="num">6</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">38,089</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Admin Dashboard Tests</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">13</td><td></td><td></td></tr>
+<tr class="stripe"><td><a href="#t1">Datasets Tests</a></td><td class="num">0</td><td class="num attn">1</td><td class="num">0</td><td class="num">0</td><td class="num">17,544</td><td></td><td></td></tr>
+<tr><td><a href="#t2">Projects Tests</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">8,833</td><td></td><td></td></tr>
+<tr class="stripe"><td><a href="#t3">Class Tags Tests</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">20,807</td><td></td><td></td></tr>
+<tr><td><a href="#t4">Users Tests</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">8,362</td><td></td><td></td></tr>
+<tr><th>Total</th><th class="num">1</th><th class="num attn">1</th><th class="num">0</th><th class="num attn">2</th><th class="num">55,559</th><th colspan="2"></th></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Forgot Password Tests &#8212; passed</th></tr><tr class="passedeven"><td rowspan="6">tests.ForgotPasswordTest</td><td><a href="#m0">backToLogin</a></td><td rowspan="1">1765540522808</td><td rowspan="1">165</td></tr><tr class="passedeven"><td><a href="#m1">forgotPasswordRedirection</a></td><td rowspan="1">1765540521327</td><td rowspan="1">1289</td></tr><tr class="passedeven"><td><a href="#m2">sendOTP</a></td><td rowspan="1">1765540523149</td><td rowspan="1">2727</td></tr><tr class="passedeven"><td><a href="#m3">setPassword</a></td><td rowspan="1">1765540550226</td><td rowspan="1">333</td></tr><tr class="passedeven"><td><a href="#m4">validateNewPassword</a></td><td rowspan="1">1765540550730</td><td rowspan="1">2072</td></tr><tr class="passedeven"><td><a href="#m5">validateOTP</a></td><td rowspan="1">1765540526046</td><td rowspan="1">24017</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4" class="invisible"/></tr></tbody>
+<tbody id="t1"><tr><th colspan="4">Datasets Tests &#8212; failed (configuration methods)</th></tr><tr class="failedeven"><td rowspan="1">tests.DatasetsTest</td><td><a href="#m0">launchUrlAndLogin</a></td><td rowspan="1">1766740224856</td><td rowspan="1">17127</td></tr><tr><th colspan="4">Datasets Tests &#8212; skipped (configuration methods)</th></tr><tr class="skippedeven"><td rowspan="1">tests.DatasetsTest</td><td><a href="#m1">resultAnalysis</a></td><td rowspan="1">1766740242018</td><td rowspan="1">0</td></tr><tr><th colspan="4">Datasets Tests &#8212; skipped</th></tr><tr class="skippedeven"><td rowspan="1">tests.DatasetsTest</td><td><a href="#m2">createDataset</a></td><td rowspan="1">1766740242016</td><td rowspan="1">0</td></tr></tbody>
+<tbody id="t2"><tr><th colspan="4">Projects Tests &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">tests.ProjectsTest</td><td><a href="#m3">createProject</a></td><td rowspan="1">1766740246993</td><td rowspan="1">3671</td></tr></tbody>
+<tbody id="t3"><tr><th colspan="4">Class Tags Tests &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">tests.ClassTagsTest</td><td><a href="#m4">createClass</a></td><td rowspan="1">1766740257782</td><td rowspan="1">13744</td></tr></tbody>
+<tbody id="t4"><tr><th colspan="4">Users Tests &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">tests.UsersTest</td><td><a href="#m5">createUser</a></td><td rowspan="1">1766740277309</td><td rowspan="1">2571</td></tr></tbody>
 </table>
-<h2>Forgot Password Tests</h2><h3 id="m0">tests.ForgotPasswordTest#backToLogin</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">tests.ForgotPasswordTest#forgotPasswordRedirection</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">tests.ForgotPasswordTest#sendOTP</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>aakash.kumar@garudauav.com</td><td>Garuda@123</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">tests.ForgotPasswordTest#setPassword</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m4">tests.ForgotPasswordTest#validateNewPassword</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m5">tests.ForgotPasswordTest#validateOTP</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Admin Dashboard Tests</h2><h2>Datasets Tests</h2><h3 id="m0">tests.DatasetsTest#launchUrlAndLogin</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th></tr><tr class="param stripe"><td>chrome</td><td>stage</td><td>false</td><td>admin</td></tr><tr><th colspan="4">Exception</th></tr><tr><td colspan="4"><div class="stacktrace">java.lang.AssertionError: Login failed — dashboard did not load! expected [true] but found [false]
+	at pages.LoginPage.validateLogin(LoginPage.java:44)
+	at base.BaseTest.launchUrlAndLogin(BaseTest.java:27)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+... Removed 23 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">tests.DatasetsTest#resultAnalysis</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">tests.DatasetsTest#createDataset</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Login failed — dashboard did not load! expected [true] but found [false]
+	at pages.LoginPage.validateLogin(LoginPage.java:44)
+	at base.BaseTest.launchUrlAndLogin(BaseTest.java:27)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+... Removed 23 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Projects Tests</h2><h3 id="m3">tests.ProjectsTest#createProject</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.NoSuchElementException: Cannot locate option with text: Automated Dataset4
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: &apos;4.39.0&apos;, revision: &apos;126f156aee&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;25.0.1&apos;
+Driver info: driver.version: unknown
+	at org.openqa.selenium.support.ui.Select.selectByVisibleText(Select.java:397)
+	at org.openqa.selenium.support.ui.Select.selectByVisibleText(Select.java:125)
+	at base.BaseLibrary.selectByText(BaseLibrary.java:298)
+	at pages.ProjectsPage.createProject(ProjectsPage.java:63)
+	at tests.ProjectsTest.createProject(ProjectsTest.java:18)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+... Removed 22 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Class Tags Tests</h2><h3 id="m4">tests.ClassTagsTest#createClass</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //simple-snack-bar//span&apos; (tried for 10 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at base.BaseLibrary.waitForVisibility(BaseLibrary.java:160)
+	at base.BaseLibrary.assertCreation(BaseLibrary.java:388)
+	at pages.ClassTagsPage.createClass(ClassTagsPage.java:59)
+	at tests.ClassTagsTest.createClass(ClassTagsTest.java:18)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//simple-snack-bar//span&quot;}
+  (Session info: chrome=143.0.7499.170)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: &apos;4.39.0&apos;, revision: &apos;126f156aee&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;25.0.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [abd27b502f3af480803dd5d1d104ab43, findElement {value=//simple-snack-bar//span, using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\gi0442\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63069}, goog:processID: 20128, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63069/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: abd27b502f3af480803dd5d1d104ab43
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:561)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:166)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:384)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:378)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy13.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:308)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:294)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:291)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
+	... 29 more
+... Removed 25 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Users Tests</h2><h3 id="m5">tests.UsersTest#createUser</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

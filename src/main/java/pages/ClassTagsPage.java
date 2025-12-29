@@ -33,6 +33,9 @@ public class ClassTagsPage extends BaseLibrary {
     private WebElement cancelBtn;
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement createBtn;
+    @FindBy(xpath = "//div[@class='notyf__message']")
+    private WebElement successMessage;
+
 
     public ClassTagsPage(){
         PageFactory.initElements(driver, this);
@@ -53,6 +56,7 @@ public class ClassTagsPage extends BaseLibrary {
         typeWhenVisible(classes, "automated linestring");
         classes.sendKeys(Keys.ENTER);
         clickWhenReady(createBtn);
+        assertCreation(successMessage);
     }
 
 

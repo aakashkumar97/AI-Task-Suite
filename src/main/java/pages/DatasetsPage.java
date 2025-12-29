@@ -32,6 +32,8 @@ public class DatasetsPage extends BaseLibrary {
     private WebElement uploadBtn;
     @FindBy(xpath = "//div[@class='add-user-dialog form-modal']")
     private WebElement uploadModal;
+    @FindBy(xpath = "//div[@class='notyf__message']")
+    private WebElement successMessage;
 
     public DatasetsPage(){
         PageFactory.initElements(driver, this);
@@ -46,8 +48,8 @@ public class DatasetsPage extends BaseLibrary {
         uploadFile(getProperty("datasetPath"));
         acceptAlert();
         clickWhenReady(nextBtn);
-        waitForInvisibility(uploadModal);
-        driver.navigate().refresh();
+        waitForUploadToComplete(uploadModal,10);
+        assertCreation(successMessage);
         typeWhenVisible(searchBox,datasetName);
     }
 
