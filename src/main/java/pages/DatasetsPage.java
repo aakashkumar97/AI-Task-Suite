@@ -49,7 +49,7 @@ public class DatasetsPage extends BaseLibrary {
         acceptAlert();
         clickWhenReady(nextBtn);
         waitForUploadToComplete(uploadModal,10);
-        assertCreation(successMessage);
+        assertMessage(successMessage);
         typeWhenVisible(searchBox,datasetName);
     }
 

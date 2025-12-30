@@ -56,7 +56,7 @@ public class ClassTagsPage extends BaseLibrary {
         typeWhenVisible(classes, "automated linestring");
         classes.sendKeys(Keys.ENTER);
         clickWhenReady(createBtn);
-        assertCreation(successMessage);
+        assertMessage(successMessage);
     }
 
 

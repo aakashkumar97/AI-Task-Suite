@@ -19,6 +19,8 @@ public class LoginPage extends BaseLibrary {
     private WebElement userInfo;
     @FindBy(xpath = "//a[@class='logout']")
     private WebElement logout;
+    @FindBy(xpath = "//div[@class='notyf__message']")
+    private WebElement successMessage;
 
     public LoginPage() {
         PageFactory.initElements(driver, this);
@@ -41,6 +43,18 @@ public class LoginPage extends BaseLibrary {
     }
 
     public void validateLogin() {
+        assertMessage(successMessage);
         Assert.assertTrue(waitForUrlContains("dashboard"), "Login failed — dashboard did not load!");
+    }
+
+    public void logoutUser() {
+        clickWhenReady(userInfo);
+        clickWhenReady(logout);
+    }
+
+    public void validateLogout() {
+        assertMessage(successMessage);
+        Assert.assertTrue(waitForUrlContains("login"), "Logout failed — login page did not load!");
+
     }
 }

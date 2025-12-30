@@ -74,7 +74,7 @@ public class ForgotPasswordPage extends BaseLibrary {
         typeWhenVisible(newPasswordField, resetPassword);
         typeWhenVisible(confirmPasswordField, resetPassword);
         clickWhenReady(submitButton);
-        assertCreation(successMessage);
+        assertMessage(successMessage);
     }
 
     public void validatePassword(){

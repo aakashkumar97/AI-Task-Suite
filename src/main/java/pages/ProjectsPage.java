@@ -64,7 +64,7 @@ public class ProjectsPage extends BaseLibrary {
         clickWhenReady(closeDropdown);
         selectByText(datasetSelect,datasetName);
         clickWhenReady(createBtn);
-        assertCreation(successMessage);
+        assertMessage(successMessage);
         typeWhenVisible(searchBox, projectName);
     }
 

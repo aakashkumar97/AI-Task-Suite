@@ -95,7 +95,7 @@ public class UsersPage extends BaseLibrary {
         typeWhenVisible(passwordInput, password);
         typeWhenVisible(confirmPasswordInput, password);
         clickWhenReady(createBtn);
-        assertCreation(successMessage);
+        assertMessage(successMessage);
     }
     public void filterUser() {
         typeWhenVisible(searchBox, getProperty("firstName") + " " + getProperty("lastName"));

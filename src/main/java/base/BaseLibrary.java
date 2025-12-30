@@ -384,7 +384,7 @@ public class BaseLibrary implements ApplicationUtility, ExcelUtility, PropertyUt
     }
 
     @Override
-    public void assertCreation(WebElement successMessage) {
+    public void assertMessage(WebElement successMessage) {
         waitForVisibility(successMessage);
         String actualMsg = successMessage.getText().trim();
 
