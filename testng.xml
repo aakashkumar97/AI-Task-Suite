@@ -15,14 +15,14 @@
 
     <test name="Forgot Password Tests"  enabled="false">
         <parameter name="userType" value="admin"/>
-        <parameter name="email" value="aakash.kumar@garudauav.com"/> <!-- enter a valid email to receive OTP -->
+        <parameter name="email" value="aakash.kumar@garudauav.com"/> <!-- Enter a valid email to receive OTP -->
         <parameter name="password" value="Garuda@123"/> <!-- enter the new password or leave Blank for random Password-->
         <classes>
             <class name="tests.ForgotPasswordTest"/>
         </classes>
     </test>
 
-    <test name="Admin Dashboard Tests"  enabled="true">
+    <test name="Admin Dashboard Tests"  enabled="false">
         <parameter name="userType" value="admin"/>
         <classes>
             <class name="tests.AdminDashboardTest"/>
@@ -52,6 +52,7 @@
 
     <test name="Users Tests"  enabled="true">
         <parameter name="userType" value="admin"/>
+        <parameter name="newUserType" value="admin"/> <!-- admin / developer / annotator -->
         <classes>
             <class name="tests.UsersTest"/>
         </classes>

@@ -4,6 +4,7 @@ import base.BaseLibrary;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 public class UsersPage extends BaseLibrary {
     @FindBy(xpath = "//div[@class='user-info']")
@@ -19,19 +20,19 @@ public class UsersPage extends BaseLibrary {
     @FindBy(xpath = "//button[contains(text(),'Assign Scope')]")
     private WebElement assignScopeBtn;
     @FindBy(xpath = "//input[@formcontrolname='firstName']")
-    private WebElement firstName;
+    private WebElement firstNameInput;
     @FindBy(xpath = "//input[@formcontrolname='lastName']")
-    private WebElement lastName;
+    private WebElement lastNameInput;
     @FindBy(xpath = "//input[@formcontrolname='email']")
-    private WebElement email;
+    private WebElement emailInput;
     @FindBy(xpath = "//input[@formcontrolname='phone']")
-    private WebElement phone;
+    private WebElement phoneInput;
     @FindBy(xpath = "//select[@formcontrolname='role']")
-    private WebElement role;
+    private WebElement roleInput;
     @FindBy(xpath = "//input[@formcontrolname='password']")
-    private WebElement password;
+    private WebElement passwordInput;
     @FindBy(xpath = "//input[@formcontrolname='confirmPassword']")
-    private WebElement confirmPassword;
+    private WebElement confirmPasswordInput;
     @FindBy(xpath = "//button[@class='btn-cancel']")
     private WebElement cancelBtn;
     @FindBy(xpath = "//button[@type='submit']")
@@ -51,18 +52,52 @@ public class UsersPage extends BaseLibrary {
         PageFactory.initElements(driver, this);
     }
 
-    public void createUser(){
+    public void goToUsers() {
         clickWhenReady(userNav);
+        Assert.assertTrue(waitForUrlContains("user"), "Redirection Failed - Users page not loaded!");
+    }
+
+    public void createUser(String newUserType) {
+        String firstName, lastName, email, phone, role, password = getProperty("password");
+        switch (newUserType.toLowerCase()) {
+            case "admin":
+                firstName = getProperty("adminFirstName");
+                lastName = getProperty("adminLastName");
+                email = getProperty("adminEmail");
+                phone = getProperty("adminPhone");
+                role = "Super Admin";
+                break;
+            case "developer":
+                firstName = getProperty("developerFirstName");
+                lastName = getProperty("developerLastName");
+                email = getProperty("developerEmail");
+                phone = getProperty("developerPhone");
+                role = "Developer";
+                break;
+            case "annotator":
+                firstName = getProperty("annotatorFirstName");
+                lastName = getProperty("annotatorLastName");
+                email = getProperty("annotatorEmail");
+                phone = getProperty("annotatorPhone");
+                role = "Annotator";
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid User Type: " + newUserType);
+
+        }
+
         clickWhenReady(addUserBtn);
-        typeWhenVisible(firstName, getProperty("firstName"));
-        typeWhenVisible(lastName, getProperty("lastName"));
-        typeWhenVisible(email, getProperty("email"));
-        typeWhenVisible(phone, getProperty("phone"));
-        selectByText(role, getProperty("role"));
-        typeWhenVisible(password, getProperty("password"));
-        typeWhenVisible(confirmPassword, getProperty("password"));
+        typeWhenVisible(firstNameInput, firstName);
+        typeWhenVisible(lastNameInput, lastName);
+        typeWhenVisible(emailInput, email);
+        typeWhenVisible(phoneInput, phone);
+        selectByText(roleInput, role);
+        typeWhenVisible(passwordInput, password);
+        typeWhenVisible(confirmPasswordInput, password);
         clickWhenReady(createBtn);
         assertCreation(successMessage);
+    }
+    public void filterUser() {
         typeWhenVisible(searchBox, getProperty("firstName") + " " + getProperty("lastName"));
     }
 

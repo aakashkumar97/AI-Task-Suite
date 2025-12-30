@@ -43,7 +43,7 @@ public class ForgotPasswordPage extends BaseLibrary {
 
     public void forgotPasswordRedirection(){
         clickWhenReady(forgotPasswordBtn);
-        Assert.assertTrue(waitForUrlContains("forgot-password"), "Forgot Password page not loaded!");
+        Assert.assertTrue(waitForUrlContains("forgot-password"), "Redirection Failed - Forgot Password page not loaded!");
     }
     public void backToLogin(){
         clickWhenReady(backToLoginBtn);
