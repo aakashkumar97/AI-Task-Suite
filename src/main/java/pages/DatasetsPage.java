@@ -50,6 +50,7 @@ public class DatasetsPage extends BaseLibrary {
         clickWhenReady(nextBtn);
         waitForUploadToComplete(uploadModal,10);
         assertMessage(successMessage);
+        incrementPropertyValue("datasetName");
         typeWhenVisible(searchBox,datasetName);
     }
 

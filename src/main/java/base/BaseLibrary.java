@@ -26,6 +26,7 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -188,6 +189,60 @@ public class BaseLibrary implements ApplicationUtility, ExcelUtility, PropertyUt
     public String getProperty(String key) {
         return prop.getProperty(key);
     }
+
+    @Override
+    public synchronized void incrementPropertyValue(String key) {
+
+        try {
+            Path propPath = Paths.get(
+                    System.getProperty("user.dir"),
+                    "src", "main", "resources", "config.properties"
+            );
+
+            Properties properties = new Properties();
+
+            // Load existing properties
+            try (FileInputStream fis = new FileInputStream(propPath.toFile())) {
+                properties.load(fis);
+            }
+
+            String currentValue = properties.getProperty(key);
+
+            if (currentValue == null || currentValue.isBlank()) {
+                throw new RuntimeException("Property key not found or empty: " + key);
+            }
+
+            String baseName;
+            int nextIndex;
+
+            // Case 1: dataset_3 → dataset_4
+            if (currentValue.matches(".*_\\d+$")) {
+                int lastUnderscore = currentValue.lastIndexOf("_");
+                baseName = currentValue.substring(0, lastUnderscore);
+                int currentIndex = Integer.parseInt(currentValue.substring(lastUnderscore + 1));
+                nextIndex = currentIndex + 1;
+            }
+            // Case 2: dataset → dataset_1
+            else {
+                baseName = currentValue;
+                nextIndex = 1;
+            }
+
+            String newValue = baseName + "_" + nextIndex;
+            properties.setProperty(key, newValue);
+
+            // Save updated property
+            try (FileOutputStream fos = new FileOutputStream(propPath.toFile())) {
+                properties.store(fos, "Updated by automation after successful creation");
+            }
+
+            System.out.println("Property updated: " + key + " = " + newValue);
+
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to update property file for key: " + key, e);
+        }
+    }
+
 
     @Override
     public String getCellValue(int sheetIndex, int rowIndex, int colIndex) {

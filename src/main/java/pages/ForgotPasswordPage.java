@@ -47,7 +47,7 @@ public class ForgotPasswordPage extends BaseLibrary {
     }
     public void backToLogin(){
         clickWhenReady(backToLoginBtn);
-        Assert.assertTrue(waitForUrlContains("login"), "Login page not loaded!");
+        Assert.assertTrue(waitForUrlContains("login"), "Redirection Failed - Login page not loaded!");
     }
 
     public void sendOTP(String email, String password) {
@@ -61,13 +61,14 @@ public class ForgotPasswordPage extends BaseLibrary {
         }
         typeWhenVisible(emailField, email);
         clickWhenReady(sendOtpBtn);
-        waitForVisibility(otpField);
+        assertMessage(successMessage);
     }
 
     public void validateOTP(){
         String otp = promptUserInput();
         typeWhenVisible(otpField, otp);
         clickWhenReady(validateOtpBtn);
+        assertMessage(successMessage);
     }
 
     public void setPassword(){
@@ -81,6 +82,7 @@ public class ForgotPasswordPage extends BaseLibrary {
         typeWhenVisible(usernameField, username);
         typeWhenVisible(passwordField, resetPassword);
         clickWhenReady(loginBtn);
+        assertMessage(successMessage);
         Assert.assertTrue(waitForUrlContains("dashboard"), "Login failed — Password did not Reset!");
     }
 }

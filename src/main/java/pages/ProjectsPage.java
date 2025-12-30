@@ -65,6 +65,7 @@ public class ProjectsPage extends BaseLibrary {
         selectByText(datasetSelect,datasetName);
         clickWhenReady(createBtn);
         assertMessage(successMessage);
+        incrementPropertyValue("projectName");
         typeWhenVisible(searchBox, projectName);
     }
 

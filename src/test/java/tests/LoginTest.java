@@ -14,21 +14,26 @@ public class LoginTest extends BaseTest {
     public void initPages(){
         ob = new LoginPage();
     }
-
     @Test(priority = 1)
     @Parameters("userType")
     public void fillCredentials(String userType) {
         ob.fillCredentials(userType);
     }
-
     @Test(priority = 2)
     public void clickLoginBtn() {
         ob.clickLogin();
     }
-
     @Test(priority = 3)
     public void validateLogin() {
         ob.validateLogin();
+    }
+    @Test(priority = 4)
+    public void clickLogoutBtn() {
+        ob.logoutUser();
+    }
+    @Test(priority = 5)
+    public void validateLogout() {
+        ob.validateLogout();
     }
 
 }
