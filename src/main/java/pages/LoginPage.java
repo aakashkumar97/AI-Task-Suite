@@ -31,7 +31,7 @@ public class LoginPage extends BaseLibrary {
             case "admin" -> getProperty("adminUsername");
             case "annotator" -> getProperty("annotatorUsername");
             case "developer" -> getProperty("developerUsername");
-            default -> throw new IllegalArgumentException("Invalid Environment " + userType);
+            default -> throw new IllegalArgumentException("Invalid userType: " + userType);
         };
         String password = getProperty("password");
         typeWhenVisible(usernameField, username);

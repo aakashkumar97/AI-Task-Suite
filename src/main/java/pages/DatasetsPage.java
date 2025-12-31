@@ -48,10 +48,9 @@ public class DatasetsPage extends BaseLibrary {
         uploadFile(getProperty("datasetPath"));
         acceptAlert();
         clickWhenReady(nextBtn);
-        waitForUploadToComplete(uploadModal,10);
+        waitForModalToDisappear(uploadModal,10);
         assertMessage(successMessage);
         incrementPropertyValue("datasetName");
-        typeWhenVisible(searchBox,datasetName);
     }
 
 }

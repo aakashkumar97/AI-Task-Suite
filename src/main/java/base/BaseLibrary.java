@@ -150,10 +150,10 @@ public class BaseLibrary implements ApplicationUtility, ExcelUtility, PropertyUt
     }
 
     @Override
-    public void waitForUploadToComplete(WebElement uploadLoader, int maxWaitMinutes) {
+    public void waitForModalToDisappear(WebElement modal, int maxWaitMinutes) {
         new WebDriverWait(driver, Duration.ofMinutes(maxWaitMinutes))
                 .pollingEvery(Duration.ofSeconds(1))
-                .until(ExpectedConditions.invisibilityOf(uploadLoader));
+                .until(ExpectedConditions.invisibilityOf(modal));
     }
 
     @Override

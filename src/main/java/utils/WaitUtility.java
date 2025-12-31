@@ -11,7 +11,7 @@ public interface WaitUtility {
 
     void waitForInvisibility(WebElement ele);
 
-    void waitForUploadToComplete(WebElement uploadLoader, int maxWaitMinutes);
+    void waitForModalToDisappear(WebElement modal, int maxWaitMinutes);
 
     void waitForVisibility(WebElement ele);
 
