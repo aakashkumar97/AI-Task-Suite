@@ -44,8 +44,8 @@ public class ClassTagsPage extends BaseLibrary {
     public void createClass(){
         clickWhenReady(classTagsNav);
         clickWhenReady(addClassTagBtn);
-        selectByText(industryType, "Highways");
-        selectByText(subSector, "Operation and Maintenance");
+        selectByText(industryType, "Renewable Energy");
+        selectByText(subSector, "Solar");
         clickWhenReady(polygon);
         typeWhenVisible(classes, "automated polygon");
         classes.sendKeys(Keys.ENTER);

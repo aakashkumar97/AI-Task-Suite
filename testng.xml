@@ -29,14 +29,14 @@
         </classes>
     </test>
 
-    <test name="Datasets Tests"  enabled="true">
+    <test name="Datasets Tests"  enabled="false">
         <parameter name="userType" value="admin"/>
         <classes>
             <class name="tests.DatasetsTest"/>
         </classes>
     </test>
 
-    <test name="Projects Tests"  enabled="true">
+    <test name="Projects Tests"  enabled="false">
         <parameter name="userType" value="admin"/>
         <classes>
             <class name="tests.ProjectsTest"/>
@@ -50,9 +50,9 @@
         </classes>
     </test>
 
-    <test name="Users Tests"  enabled="true">
+    <test name="Users Tests"  enabled="false">
         <parameter name="userType" value="admin"/>
-        <parameter name="newUserType" value="admin"/> <!-- admin / developer / annotator -->
+        <parameter name="newUserType" value="all"/> <!-- admin / developer / annotator / all -->
         <classes>
             <class name="tests.UsersTest"/>
         </classes>

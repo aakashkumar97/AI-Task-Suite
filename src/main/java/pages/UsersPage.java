@@ -57,35 +57,14 @@ public class UsersPage extends BaseLibrary {
         Assert.assertTrue(waitForUrlContains("user"), "Redirection Failed - Users page not loaded!");
     }
 
-    public void createUser(String newUserType) {
-        String firstName, lastName, email, phone, role, password = getProperty("password");
-        switch (newUserType.toLowerCase()) {
-            case "admin":
-                firstName = getProperty("adminFirstName");
-                lastName = getProperty("adminLastName");
-                email = getProperty("adminEmail");
-                phone = getProperty("adminPhone");
-                role = "Super Admin";
-                break;
-            case "developer":
-                firstName = getProperty("developerFirstName");
-                lastName = getProperty("developerLastName");
-                email = getProperty("developerEmail");
-                phone = getProperty("developerPhone");
-                role = "Developer";
-                break;
-            case "annotator":
-                firstName = getProperty("annotatorFirstName");
-                lastName = getProperty("annotatorLastName");
-                email = getProperty("annotatorEmail");
-                phone = getProperty("annotatorPhone");
-                role = "Annotator";
-                break;
-            default:
-                throw new IllegalArgumentException("Invalid User Type: " + newUserType);
-
-        }
-
+    private void createSingleUser(
+            String firstName,
+            String lastName,
+            String email,
+            String phone,
+            String role,
+            String password
+    ) {
         clickWhenReady(addUserBtn);
         typeWhenVisible(firstNameInput, firstName);
         typeWhenVisible(lastNameInput, lastName);
@@ -97,6 +76,62 @@ public class UsersPage extends BaseLibrary {
         clickWhenReady(createBtn);
         assertMessage(successMessage);
     }
+
+
+    public void createUser(String newUserType) {
+
+        String password = getProperty("password");
+
+        if (password == null || password.isBlank()) {
+            throw new RuntimeException("Password is missing in config.properties");
+        }
+
+        switch (newUserType.toLowerCase()) {
+
+            case "admin":
+                createSingleUser(
+                        getProperty("adminFirstName"),
+                        getProperty("adminLastName"),
+                        getProperty("adminEmail"),
+                        getProperty("adminPhone"),
+                        "Super Admin",
+                        password
+                );
+                break;
+
+            case "developer":
+                createSingleUser(
+                        getProperty("developerFirstName"),
+                        getProperty("developerLastName"),
+                        getProperty("developerEmail"),
+                        getProperty("developerPhone"),
+                        "Developer",
+                        password
+                );
+                break;
+
+            case "annotator":
+                createSingleUser(
+                        getProperty("annotatorFirstName"),
+                        getProperty("annotatorLastName"),
+                        getProperty("annotatorEmail"),
+                        getProperty("annotatorPhone"),
+                        "Annotator",
+                        password
+                );
+                break;
+
+            case "all":
+                createUser("admin");
+                createUser("developer");
+                createUser("annotator");
+                break;
+
+            default:
+                throw new IllegalArgumentException("Invalid User Type: " + newUserType);
+        }
+    }
+
     public void filterUser() {
         typeWhenVisible(searchBox, getProperty("firstName") + " " + getProperty("lastName"));
     }

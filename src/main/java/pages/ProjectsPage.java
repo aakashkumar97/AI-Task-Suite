@@ -57,8 +57,8 @@ public class ProjectsPage extends BaseLibrary {
         typeWhenVisible(projectNameField, projectName);
         selectByText(sectorDropdown, "Renewable Energy");
         selectByText(priorityDropdown, "High");
-        typeWhenVisible(startDate, "2025-12-10");
-        typeWhenVisible(endDate, "2025-12-12");
+        typeWhenVisible(startDate, "2026-01-02");
+        typeWhenVisible(endDate, "2026-02-02");
         clickWhenReady(subsectorDropdown);
         clickWhenReady(selectAll);
         clickWhenReady(closeDropdown);
